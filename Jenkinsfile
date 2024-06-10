@@ -120,16 +120,16 @@ pipeline {
                 sshagent(credentials: ['sshkey']) {
                     sh """
                     ssh -o StrictHostKeyChecking=no ${SSH_USER}@${SSH_HOST} << EOF
-                    docker pull ${DOCKER_IMAGE_VUE}:latest
-                    docker pull ${DOCKER_IMAGE_DJANGO}:latest
+                    sudo docker pull ${DOCKER_IMAGE_VUE}:latest
+                    sudo docker pull ${DOCKER_IMAGE_DJANGO}:latest
 
-                    docker stop vue-app || true
-                    docker rm vue-app || true
-                    docker stop django-app || true
-                    docker rm django-app || true
+                    sudo docker stop vue-app || true
+                    sudo docker rm vue-app || true
+                    sudo docker stop django-app || true
+                    sudo docker rm django-app || true
 
-                    docker run -d --name vue-app -p 80:80 ${DOCKER_IMAGE_VUE}:latest
-                    docker run -d --name django-app -p 8000:8000 ${DOCKER_IMAGE_DJANGO}:latest
+                    sudo docker run -d --name vue-app -p 80:80 ${DOCKER_IMAGE_VUE}:latest
+                    sudo docker run -d --name django-app -p 8000:8000 ${DOCKER_IMAGE_DJANGO}:latest
                     EOF
                     """
                 }
