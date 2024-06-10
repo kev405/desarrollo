@@ -94,7 +94,7 @@
           <Button
             @click="signIn()"
             class="w-full"
-            label="Iniciar sesión"
+            label="Iniciar sesión otra prueba hook"
             icon="pi pi-user"
             id="sign-in-button"
             :loading="signInLoading"
