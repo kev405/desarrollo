@@ -130,7 +130,6 @@ pipeline {
 
                     sudo docker run -d --name vue-app -p 80:80 ${DOCKER_IMAGE_VUE}:latest
                     sudo docker run -d --name django-app -p 8000:8000 ${DOCKER_IMAGE_DJANGO}:latest
-                    EOF
                     """
                 }
             }
