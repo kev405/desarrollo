@@ -36,7 +36,7 @@ pipeline {
                     script {
                         echo "Building Docker image for Vue.js application"
                     }
-                    sh 'docker build -t ${DOCKER_IMAGE_VUE}:latest .'
+                    sh 'sudo docker build -t ${DOCKER_IMAGE_VUE}:latest .'
                 }
             }
         }
