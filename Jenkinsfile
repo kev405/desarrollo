@@ -7,6 +7,9 @@ pipeline {
         DOCKERHUB_CREDENTIALS = credentials('dockerhub-credentials-id') // Reemplaza 'dockerhub-credentials-id' con el ID de las credenciales de DockerHub en Jenkins
         DOCKER_IMAGE_VUE = "kev405/my-vue-app" // Reemplaza con tu usuario e imagen de DockerHub para Vue
         DOCKER_IMAGE_DJANGO = "kev405/my-django-app" // Reemplaza con tu usuario e imagen de DockerHub para Django
+        SSH_CREDENTIALS = 'sshkey' // Reemplaza con el ID de las credenciales SSH en Jenkins
+        SSH_HOST = "34.66.141.23 " // Reemplaza con la IP de la VM
+        SSH_USER = "karistizabal307" // Reemplaza con el nombre de usuario SSH
     }
 
     stages {
@@ -106,6 +109,30 @@ pipeline {
                     echo "Pushing Docker image for Django application to DockerHub"
                 }
                 sh 'sudo docker push ${DOCKER_IMAGE_DJANGO}:latest'
+            }
+        }
+
+        stage('Update Containers on Host') {
+            steps {
+                script {
+                    echo "Updating containers on host"
+                }
+                sshagent(credentials: ['ssh-credentials-id']) {
+                    sh """
+                    ssh -o StrictHostKeyChecking=no ${SSH_USER}@${SSH_HOST} << EOF
+                    docker pull ${DOCKER_IMAGE_VUE}:latest
+                    docker pull ${DOCKER_IMAGE_DJANGO}:latest
+
+                    docker stop vue-app || true
+                    docker rm vue-app || true
+                    docker stop django-app || true
+                    docker rm django-app || true
+
+                    docker run -d --name vue-app -p 80:80 ${DOCKER_IMAGE_VUE}:latest
+                    docker run -d --name django-app -p 8000:8000 ${DOCKER_IMAGE_DJANGO}:latest
+                    EOF
+                    """
+                }
             }
         }
 
