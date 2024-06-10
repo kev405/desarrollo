@@ -1,0 +1,50 @@
+@import 'primeicons/primeicons.css';
+@import 'primevue/resources/primevue.min.css';
+@import 'primevue/resources/themes/saga-blue/theme.css';
+
+@import 'primeflex/core/variables';
+
+$esm:320px;
+$sm:576px;
+$md:768px;
+$lg:992px;
+$xl:1300px;
+$xxl:2000px;
+
+$breakpoints: (
+    'esm': $esm,
+    'sm': $sm,
+    'md': $md,
+    'lg': $lg,
+    'xl': $xl,
+    'xxl': $xxl
+);
+
+@import 'primeflex/core/mixins';
+@import 'primeflex/core/grid';
+@import 'primeflex/core/colors';
+@import 'primeflex/core/formlayout';
+@import 'primeflex/core/display';
+@import 'primeflex/core/typography';
+@import 'primeflex/core/flexbox';
+@import 'primeflex/core/gap';
+@import 'primeflex/core/spacing';
+@import 'primeflex/core/elevation';
+@import 'primeflex/core/border';
+@import 'primeflex/core/borderradius';
+@import 'primeflex/core/size';
+@import 'primeflex/core/position';
+@import 'primeflex/core/overflow';
+@import 'primeflex/core/zindex';
+@import 'primeflex/core/image';
+@import 'primeflex/core/userselect';
+@import 'primeflex/core/liststyle';
+@import 'primeflex/core/misc';
+@import 'primeflex/core/transition';
+@import 'primeflex/core/transform';
+@import 'primeflex/core/animation';
+@import 'primeflex/core/utils';
+
+#main-app {
+  @import 'primeflex/primeflex.scss';
+}
