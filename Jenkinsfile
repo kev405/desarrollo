@@ -4,7 +4,7 @@ pipeline {
     environment {
         VUE_DIR = 'vue'
         VENV = "${env.WORKSPACE}/venv"
-        DOCKERHUB_CREDENTIALS = credentials('github') // Reemplaza 'dockerhub-credentials-id' con el ID de las credenciales de DockerHub en Jenkins
+        DOCKERHUB_CREDENTIALS = credentials('dockerhub-credentials-id') // Reemplaza 'dockerhub-credentials-id' con el ID de las credenciales de DockerHub en Jenkins
         DOCKER_IMAGE_VUE = "kev405/my-vue-app" // Reemplaza con tu usuario e imagen de DockerHub para Vue
         DOCKER_IMAGE_DJANGO = "kev405/my-django-app" // Reemplaza con tu usuario e imagen de DockerHub para Django
     }
