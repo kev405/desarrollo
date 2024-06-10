@@ -94,7 +94,7 @@
           <Button
             @click="signIn()"
             class="w-full"
-            label="Iniciar sesión prueba push"
+            label="Iniciar sesión"
             icon="pi pi-user"
             id="sign-in-button"
             :loading="signInLoading"
