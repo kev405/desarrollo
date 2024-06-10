@@ -75,7 +75,7 @@ pipeline {
                 script {
                     echo "Building Docker image for Django application"
                 }
-                sh 'docker build -t ${DOCKER_IMAGE_DJANGO}:latest .'
+                sh 'sudo docker build -t ${DOCKER_IMAGE_DJANGO}:latest .'
             }
         }
 
@@ -95,7 +95,7 @@ pipeline {
                 script {
                     echo "Pushing Docker image for Vue.js application to DockerHub"
                 }
-                sh 'docker push ${DOCKER_IMAGE_VUE}:latest'
+                sh 'sudo docker push ${DOCKER_IMAGE_VUE}:latest'
             }
         }
 
@@ -105,7 +105,7 @@ pipeline {
                 script {
                     echo "Pushing Docker image for Django application to DockerHub"
                 }
-                sh 'docker push ${DOCKER_IMAGE_DJANGO}:latest'
+                sh 'sudo docker push ${DOCKER_IMAGE_DJANGO}:latest'
             }
         }
 
