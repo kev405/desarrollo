@@ -117,7 +117,7 @@ pipeline {
                 script {
                     echo "Updating containers on host"
                 }
-                sshagent(credentials: ['ssh-credentials-id']) {
+                sshagent(credentials: ['sshkey']) {
                     sh """
                     ssh -o StrictHostKeyChecking=no ${SSH_USER}@${SSH_HOST} << EOF
                     docker pull ${DOCKER_IMAGE_VUE}:latest
