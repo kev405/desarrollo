@@ -94,7 +94,7 @@
           <Button
             @click="signIn()"
             class="w-full"
-            label="Iniciar sesión otra vez marditasea"
+            label="Iniciar sesión otra vez marditaseaaaaaaaaaaaaaaa"
             icon="pi pi-user"
             id="sign-in-button"
             :loading="signInLoading"
